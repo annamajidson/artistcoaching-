@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Majidson - Artist Coaching</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f8f8;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent: #000000;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 2rem;
+            text-align: left;
+            position: relative;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.3rem;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section styling */
+        section {
+            margin: 4rem 0;
+            animation: fadeIn 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+
+        h2 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.8rem;
+        }
+
+        /* Music Player */
+        .music-player {
+            padding: 2rem 0;
+            margin: 2rem 0;
+        }
+
+        .music-player h3 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .music-bio-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .bio-section h3 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .bio-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 2rem 0;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .video-section iframe {
+            margin: 0 auto;
+        }
+
+        .deezer-embed {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        /* Topics List */
+        .topics-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .topics-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .topics-list li:hover {
+            color: var(--text-primary);
+            padding-left: 1rem;
+        }
+
+        .topics-list li::before {
+            content: "•";
+            color: var(--text-primary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5rem;
+            margin-left: -1.5rem;
+        }
+
+        /* Pricing Section */
+        .pricing-content {
+            padding: 2rem 0;
+            line-height: 1.8;
+        }
+
+        .pricing-content p {
+            margin-bottom: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight {
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        /* Studio Info */
+        .studio-info {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .studio-info p {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+        }
+
+        .studio-name {
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            border-bottom: 1px solid var(--text-primary);
+        }
+
+        .contact-info a:hover {
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--text-secondary);
+        }
+
+        .fanbase-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            text-decoration: none;
+            border: 1px solid var(--text-primary);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .fanbase-button:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        .links-section {
+            text-align: center;
+            padding: 3rem 0;
+            margin: 4rem 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            header {
+                padding: 2rem 1.5rem;
+            }
+
+            section {
+                margin: 3rem 0;
+            }
+
+            .pricing-content,
+            .music-player {
+                padding: 1.5rem;
+            }
+
+            .music-bio-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>anna_majidson</h1>
+        <p class="subtitle">artist coaching</p>
+    </header>
+
+    <div class="container">
+        <section id="topics">
+            <h2>thématiques abordées</h2>
+            <ul class="topics-list">
+                <li>Les droits d'édition vs. Les droits de phono : quels sont la différence ?</li>
+                <li>Quels subventions demander pour quelle structure ?</li>
+                <li>Comment faire un rétroplanning ?</li>
+                <li>Comment organiser sa sortie de single/EP/album ?</li>
+                <li>Comment créer un budget pour son projet ?</li>
+                <li>Comment choisir sa direction artistique ?</li>
+                <li>Qu'est-ce qu'un manager, et comment en trouver un (ou s'en sortir sans)</li>
+                <li>Comment organiser une release party</li>
+                <li>Comment m'organiser pour créer une économie viable autour de mon projet ?</li>
+            </ul>
+        </section>
+
+        <section id="pricing">
+            <h2>grille tarifaire</h2>
+            <div class="pricing-content">
+                <p>
+                    Chaque individu est invité à me dire honnêtement ce qu'il peut contribuer.
+                </p>
+                <p>
+                    Si la personne est au RSA, intermittente ou étudiante, le tarif conseillé est de 40 € de l'heure.
+                </p>
+                <p>
+                    Il faut garder en tête que ce type de consulting est ponctuel et que, souvent, une seule session est nécessaire pour y voir plus clair.
+                </p>
+                <p>
+                    Si la personne ne peut absolument pas se permettre ce type de dépense, il est bien sûr possible de trouver une entente autrement, notamment si elle doit assumer des frais médicaux ou rembourse déjà une dette précédente.
+                </p>
+            </div>
+        </section>
+
+        <section id="studio">
+            <h2>lieu</h2>
+            <div class="studio-info">
+                <p>Le studio est au <span class="studio-name">Bunker à Père Lachaise (75011, Paris)</span> ou par visio</p>
+            </div>
+        </section>
+
+        <section class="music-player">
+            <div class="music-bio-container">
+                <div class="bio-section">
+                    <h3>qui je suis</h3>
+                    <p>Anna Majidson est l'une de ces voix rares qui façonnent la nouvelle scène française et internationale, mêlant un folk intime à un R&B raffiné. Initialement découverte à travers deux vidéos COLORS, dont l'une cumule plus de 31 millions de streams, la Franco-Américaine a continué à tracer son chemin dans la musique.</p>
+                    <p>À travers quatre EP, elle a démontré sa maîtrise des sonorités modernes tout en apportant sa touche personnelle à la musique française, allant de la résonance délicate de la mandoline à une écriture poétique et accrocheuse.</p>
+                    <p>Elle a collaboré avec des artistes tels que November Ultra, Seu Jorge et Macy Gray, se dessinant un univers intime et immédiatement reconnaissable.</p>
+                    <p>Reconnue pour son identité artistique singulière, elle a été mise en avant par France Inter, Nowness et Les Inrockuptibles.</p>
+                    <p>En 2024-2025, elle a été approchée par une initiative montée par Diva 404 et l'Union européenne pour concevoir et donner des masterclasses en lien avec la musique et l'entrepreneuriat dans trois villes différentes en Europe: Paris, Lisbonne, et Bruxelles.</p>
+                    <p>Elle fait également de la musique à l'image et prête sa voix à des marques de luxe telles que Chanel, Yves Saint Laurent et Givenchy.</p>
+                    <p>Anna est lauréate des prix Constant Coquelin, le prix du Fair, la bourse FGO Variations, et du Keychange award.</p>
+                </div>
+                <div>
+                    <iframe allow="autoplay; encrypted-media; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" src="https://embed.music.apple.com/fr/album/echo/1553826220?i=1553826233&l=en-GB"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <iframe allow="autoplay; encrypted-media; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" src="https://embed.music.apple.com/fr/music-video/soleil-cendre/1610363404?l=en-GB"></iframe>
+        </section>
+
+        <section class="links-section">
+            <a href="https://www.fanbase.to/annamajidson" target="_blank" class="fanbase-button">Tous mes liens</a>
+        </section>
+
+        <section id="contact">
+            <h2>contact</h2>
+            <div class="contact-info">
+                <p>Pour plus d'informations ou pour réserver une session</p>
+                <p><a href="mailto:annamagidson@gmail.com">Contactez-moi par email</a></p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Anna Majidson - Ar
